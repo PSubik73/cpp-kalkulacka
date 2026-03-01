@@ -1,3 +1,18 @@
-git add .
-git commit -m "SUBO-2: Pridanie automatizovaneho testu"
-git push origin main
+name: C++ CI Test
+
+on: [push]
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout kodu
+      uses: actions/checkout@v4
+
+    - name: Kompilacia aplikacie
+      run: g++ main.cpp -o kalkulacka
+
+    - name: Spustenie testu (Delenie nulou)
+      run: |
+        echo "10 0" | ./kalkulacka
