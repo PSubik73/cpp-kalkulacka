@@ -1,7 +1,13 @@
-#include <gtest/gtest.h>
+#include <iostream>
+#include "calculator.cpp" // Predpokladám, že matematika je tu
 
-TEST(CalculatorTest, DivisionByZero) {
-    // Tento test očakáva, že aplikácia nespadne, ale ona spadne (Crash)
-    EXPECT_EQ(divide(10, 2), 5);
-    EXPECT_EQ(divide(10, 0), 0); // Tu program padne
+int main() {
+    int a, b;
+    std::cout << "Zadaj dve cisla pre delenie: " << std::endl;
+    if (!(std::cin >> a >> b)) return 1;
+
+    // Tu zavoláme tvoju funkciu. Ak b bude 0, program spadne (Crash)
+    std::cout << "Vysledok: " << divide(a, b) << std::endl;
+
+    return 0;
 }
